@@ -47,7 +47,11 @@
     "spaced-comment": "error",
     "quotes": [
       "error",
-      "single"
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
     ],
     "no-duplicate-imports": "error"
   },
