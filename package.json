@@ -1,7 +1,7 @@
 {
   "name": "@apascualm/cra-template-typescript",
   "description": "The base TypeScript template with testing included for a React App.",
-  "version": "0.9.1",
+  "version": "0.10.0-0",
   "keywords": [
     "react",
     "create-react-app",
