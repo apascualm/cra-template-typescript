@@ -20,9 +20,12 @@
       "test:e2e:watch": "npm run cy:open",
       "cy:open": "cypress open",
       "cy:run": "cypress run",
+      "style": "npm run lint && npm run format",
+      "style:fix": "npm run lint:fix && npm run format:fix",
       "lint": "eslint '{src,tests}/**/*.{js,jsx,ts,tsx,json}'",
       "lint:fix": "eslint --fix '{src,tests}/**/*.{js,jsx,ts,tsx,json}'",
-      "format": "prettier --write '{src,tests}/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+      "format": "prettier -c '{src,tests}/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+      "format:fix": "prettier --write '{src,tests}/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
     },
     "devDependencies": {
       "@faker-js/faker": "^7.6.0",
