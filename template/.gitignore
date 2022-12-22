@@ -2,6 +2,7 @@
 
 # tools
 .idea
+cypress
 
 # dependencies
 /node_modules
