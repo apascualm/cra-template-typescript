@@ -1,0 +1,60 @@
+@import "../../Layout/colors";
+.NotFoundErrorPage, .InternalErrorPage {;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  h1 {
+    color: $color-secondary;
+    font-weight: bolder;
+    font-size: 128px;
+    margin: 20px;
+  }
+
+  div {
+    font-size: 18px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    margin-bottom: 200px;
+
+  }
+}
+
+:global {
+  @for $i from 0 through 3 {
+    .wave:nth-child(#{($i)}) {
+      position: relative;
+      top: 0;
+
+      &:local {
+        animation-name: move_wave;
+        animation-duration: 3s;
+        animation-delay: #{$i * 1000 * -1}ms;
+        animation-timing-function: cubic-bezier(0.18, 0.44, 0.88, 0.6);
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+
+}
+
+@keyframes move_wave {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 15px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+
+
+
+
+

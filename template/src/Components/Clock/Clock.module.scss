@@ -1,0 +1,83 @@
+.DigitalClockContainer {
+  display: flex;
+  flex-flow: row;
+  --time-color: #5dc9bc;
+  --time-separator: #a94bff;
+  font-weight: bolder;
+  font-size: 24px;
+  justify-content: center;
+
+  div[class] {
+    padding: 0 5px;
+  }
+
+  .Hours {
+    color: var(--time-color);
+  }
+
+  .Minutes {
+    color: var(--time-color);
+  }
+
+  div:not([class]) {
+    color: var(--time-separator);
+  }
+
+  .Seconds {
+    color: var(--time-color);
+  }
+}
+
+.AnalogClockContainer {
+  display: flex;
+  flex-flow: row;
+  --time-color: #5dc9bc;
+  --time-separator: #a94bff;
+  font-weight: bolder;
+
+  :global {
+    .minutes, .hours, .seconds {
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      path, line {
+        transform-origin: 50% 50%;
+      }
+
+      line {
+        x1: 50%;
+        y1: 50%
+      }
+    }
+
+    .clock {
+      circle {
+        stroke-width: 6;
+        stroke: #44d1df;
+        fill: transparent;
+      }
+
+    }
+
+    .minutes {
+      stroke: #32a4a7;
+      stroke-width: 8;
+    }
+
+    .hours {
+      stroke: #1e7069;
+      stroke-width: 8;
+    }
+
+    .seconds {
+      stroke: #44d1df;
+      stroke-width: 6;
+    }
+  }
+}
+
+.ClockComponent {
+  position: relative;
+  width: 300px;
+  text-align: center;
+}

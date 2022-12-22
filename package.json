@@ -1,0 +1,32 @@
+{
+  "name": "@apascualm/cra-template-typescript",
+  "description": "The base TypeScript template with testing included for a React App.",
+  "version": "0.9.0",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "typescript",
+    "testing"
+  ],
+  "author": {
+    "name": "Alejandro Pascual Montenegro",
+    "email": "pascualmontenegro@gmail.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/apascualm/cra-template-typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/apascualm/cra-template-typescript/issues"
+  },
+  "homepage": "https://github.com/apascualm/cra-template-typescript#readme"
+}

@@ -1,0 +1,22 @@
+.UsePage {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+
+  article {
+    max-width: 900px;
+
+    h1 {
+      font-weight: bolder;
+      font-size: 44px;
+
+      small {
+        display: block;
+        font-size: 18px;
+        color: #b0b0b0;
+      }
+    }
+  }
+}

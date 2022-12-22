@@ -1,0 +1,48 @@
+@import "colors";
+
+.EmptyLayout {
+  color: white;
+}
+
+
+:global {
+  body {
+    margin: 0;
+    background-color: #282c34;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html, :global(#root), body {
+    height: 100%;
+    font-size: 16px;
+  }
+
+  strong {
+    color: $color-primary;
+  }
+
+  a {
+    color: $color-secondary;
+
+    &:visited {
+      color: $color-accent;
+    }
+  }
+  h2 {
+    margin-top: 40px;
+  }
+
+  code {
+    background-color: #404249;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: $color-secondary;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    span.run {
+      color: lawngreen;
+    }
+  }
+}

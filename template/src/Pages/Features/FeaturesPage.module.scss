@@ -1,0 +1,44 @@
+.Page {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+
+  article {
+    max-width: 900px;
+    div {
+      h1 {
+        font-weight: bolder;
+        font-size: 44px;
+
+        small {
+          display: block;
+          font-size: 18px;
+          color: #b0b0b0;
+        }
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 10px;
+
+      li::before {
+        display: inline;
+        content: '✅ ';
+      }
+
+      li {
+        margin: 0 0 10px;
+        padding-left: 1.5em;
+        text-indent: -1.5em;
+
+        li::before {
+          display: inline;
+          content: '🤩 ';
+        }
+      }
+    }
+  }
+}

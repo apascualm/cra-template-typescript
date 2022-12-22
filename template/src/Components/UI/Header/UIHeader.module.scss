@@ -1,0 +1,135 @@
+@import "../../../Layout/colors";
+
+.Header {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: $color-primary;
+  box-shadow: #000 0 1px 5px 0;
+  z-index: 2;
+
+  & > div {
+    margin-left: 20px;
+    font-weight: bolder;
+    color: $color-secondary;
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+
+  :global {
+    nav.headerMenu {
+      ul {
+        list-style: none;
+        padding-left: 10px;
+
+        li {
+          display: inline;
+          color: white;
+          margin-right: 4px;
+          font-weight: bolder;
+          padding: 10px 15px;
+          border-radius: 5px;
+          text-transform: uppercase;
+
+          a, a:visited {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+          }
+
+          a:hover {
+            cursor: pointer;
+          }
+
+          :global {
+            a.active {
+              border-bottom: 2px solid $color-secondary;
+              transition: border-bottom-color 500ms;
+            }
+
+          }
+
+          &:hover {
+            background: #114945;
+            transition: background-color 400ms ease-in-out;
+          }
+        }
+      }
+    }
+    nav.mobileMenu {
+      position: fixed;
+      z-index: 2;
+      background-color: #1e7069;
+      top: 0;
+      bottom: 0;
+      right: -255px;
+      height: 100vmax;
+      width: 250px;
+      box-shadow: #000 -1px 0 5px 0;
+      transition: right 600ms ease;
+      &.active {
+        right: 0;
+      }
+      ul {
+        position: relative;
+        margin-top: 60px;
+        list-style: none;
+        padding-left: 10px;
+        height: 100%;
+        li {
+          display: block;
+          color: white;
+          margin-right: 8px;
+          margin-bottom: 8px;
+          font-weight: bolder;
+          padding: 10px 15px;
+          border-radius: 5px;
+          text-transform: uppercase;
+
+          a, a:visited {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+          }
+
+          :global {
+            a.active {
+              border-bottom: 2px solid $color-secondary;
+              transition: border-bottom-color 500ms;
+            }
+
+          }
+          &:hover {
+            cursor: pointer;
+            background: #114945;
+            transition: background-color 400ms ease-in-out;
+          }
+        }
+      }
+    }
+  }
+
+  :global{
+    button.menuToggle {
+      position: fixed;
+      bottom: 55px;
+      right: 20px;
+      background-color: $color-primary;
+      color: white;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      font-weight: bolder;
+      font-size: 1.6rem;
+      border: none;
+      border-radius: 5px;
+      box-shadow: #000 1px 1px 5px 0;
+      transition: background-color 600ms;
+      &:hover {
+        background: #114945;
+        cursor: pointer;
+      }
+    }
+  }
+}
