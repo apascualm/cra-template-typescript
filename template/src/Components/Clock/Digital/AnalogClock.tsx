@@ -5,31 +5,28 @@ export function AnalogClock({ date }: { date: Date }) {
   const [hour, setHour] = useState(0)
   const [minute, setMinute] = useState(0)
   const [second, setSecond] = useState(0)
-
+  const dateHours = date.getHours()
+  const dateMinutes = date.getMinutes()
+  const dateSeconds = date.getSeconds()
 
   useMemo(() => {
-    let result = (date.getHours() > 12 ? date.getHours() - 12 : date.getHours()) * 60
-    result += date.getMinutes()
+    let result = (dateHours > 12 ? dateHours - 12 : dateHours) * 60
+    result += dateMinutes
     result = (360 / (12 * 60)) * result
     setHour(Math.round(result * 10) / 10)
-  }, [date.getHours(), date.getMinutes()])
+  }, [dateHours, dateMinutes])
 
   useMemo(() => {
-    setMinute(Math.round((360 / 60) * date.getMinutes() * 10) / 10)
-  }, [date.getMinutes()])
+    setMinute(Math.round((360 / 60) * dateMinutes * 10) / 10)
+  }, [dateMinutes])
 
   useMemo(() => {
-    setSecond(Math.round((360 / 60) * date.getSeconds() * 10) / 10)
-  }, [date.getSeconds()])
+    setSecond(Math.round((360 / 60) * dateSeconds * 10) / 10)
+  }, [dateSeconds])
 
   return (
     <div className={styles.AnalogClockContainer}>
-      <svg
-        height='250'
-        version='1.1'
-        viewBox='0 0 300 300'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg height='250' version='1.1' viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'>
         <defs />
         <g id='Clock' className='clock'>
           <circle r={122} cx={'50%'} cy={'50%'} />

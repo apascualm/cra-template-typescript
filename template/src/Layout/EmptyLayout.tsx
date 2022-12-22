@@ -5,9 +5,9 @@ import { UIFooter } from '@components/UI/Footer/UIFooter'
 export function EmptyLayout() {
   return (
     <div className={styles.EmptyLayout}>
-      <UIHeader/>
+      <UIHeader />
       <Outlet />
-      <UIFooter/>
+      <UIFooter />
     </div>
   )
 }

@@ -15,15 +15,27 @@ export function Clock() {
       clearInterval(clocking)
     }
   }, [])
-  
+
   return (
     <>
       <div className={styles.ClockComponent}>
-        {digital?<DigitalClock date={date}/>:<AnalogClock date={date}/>}
+        {digital ? <DigitalClock date={date} /> : <AnalogClock date={date} />}
         <MenuButton>
           <ul>
-            <li onClick={() => {setDigital(prevState => !prevState)}}>Analog</li>
-            <li onClick={() => {setDigital(prevState => !prevState)}}>Digital</li>
+            <li
+              onClick={() => {
+                setDigital((prevState) => !prevState)
+              }}
+            >
+              Analog
+            </li>
+            <li
+              onClick={() => {
+                setDigital((prevState) => !prevState)
+              }}
+            >
+              Digital
+            </li>
           </ul>
         </MenuButton>
       </div>

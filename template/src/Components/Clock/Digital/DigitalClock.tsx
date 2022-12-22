@@ -5,18 +5,21 @@ export function DigitalClock({ date }: { date: Date }) {
   const [hour, setHour] = useState('0')
   const [minute, setMinute] = useState('0')
   const [second, setSecond] = useState('0')
+  const dateHours = date.getHours()
+  const dateMinutes = date.getMinutes()
+  const dateSeconds = date.getSeconds()
 
   useMemo(() => {
-    setHour(date.getHours().toString().padStart(2, '0'))
-  }, [date.getHours()])
+    setHour(dateHours.toString().padStart(2, '0'))
+  }, [dateHours])
 
   useMemo(() => {
-    setMinute(date.getMinutes().toString().padStart(2, '0'))
-  }, [date.getMinutes()])
+    setMinute(dateMinutes.toString().padStart(2, '0'))
+  }, [dateMinutes])
 
   useMemo(() => {
-    setSecond(date.getSeconds().toString().padStart(2, '0'))
-  }, [date.getSeconds()])
+    setSecond(dateSeconds.toString().padStart(2, '0'))
+  }, [dateSeconds])
 
   return (
     <div className={styles.DigitalClockContainer}>

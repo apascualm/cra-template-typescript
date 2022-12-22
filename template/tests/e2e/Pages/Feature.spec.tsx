@@ -24,9 +24,11 @@ describe('Given that is visited the feature page', () => {
       ]
 
       features.forEach((f) => {
-        cy.findByRole('article').get('ul>li').each( () => {
-          cy.findAllByText(new RegExp(f, 'i')).first().should('exist')
-        })
+        cy.findByRole('article')
+          .get('ul>li')
+          .each(() => {
+            cy.findAllByText(new RegExp(f, 'i')).first().should('exist')
+          })
       })
     })
   })

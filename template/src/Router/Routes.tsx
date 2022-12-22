@@ -7,8 +7,7 @@ import { ClockPage } from '@pages/Clock/ClockPage'
 import { NotFoundErrorPage } from '@pages/Error/NotFoundErrorPage'
 import { UsePage } from '@pages/Use/UsePage'
 
-function ErrorTest(){
-
+function ErrorTest() {
   if (Math.random()) throw new Error('Deliberate Error')
 
   return <>test</>
@@ -17,7 +16,7 @@ export const routes: RouteObject[] = [
   {
     path: '/',
     element: <EmptyLayout />,
-    errorElement: <BaseErrorElement/>,
+    errorElement: <BaseErrorElement />,
     children: [
       {
         path: '',
@@ -26,19 +25,19 @@ export const routes: RouteObject[] = [
       },
       {
         path: 'features',
-        element: <FeaturesPage/>
+        element: <FeaturesPage />,
       },
       {
         path: 'clock',
-        element: <ClockPage/>
+        element: <ClockPage />,
       },
       {
         path: 'use',
-        element: <UsePage/>
+        element: <UsePage />,
       },
       {
         path: 'error500',
-        element: <ErrorTest/>
+        element: <ErrorTest />,
       },
       {
         path: '*',

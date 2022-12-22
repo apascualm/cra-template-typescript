@@ -14,12 +14,14 @@ export function UIHeader() {
     }
 
     const clickOutOfMenu = (event: MouseEvent) => {
-        if (!mobile) return
-        if (!menuVisible) {
-          if (buttonRef.current && buttonRef.current.contains(event.target as Node)) setMenuVisible(prevState => !prevState)
-          return
-        }
-        if (menuRef.current && !menuRef.current.contains(event.target as Node)) setMenuVisible(prevState => !prevState)
+      if (!mobile) return
+      if (!menuVisible) {
+        if (buttonRef.current && buttonRef.current.contains(event.target as Node))
+          setMenuVisible((prevState) => !prevState)
+        return
+      }
+      if (menuRef.current && !menuRef.current.contains(event.target as Node))
+        setMenuVisible((prevState) => !prevState)
     }
     watchWindow()
 
@@ -59,7 +61,12 @@ export function UIHeader() {
             </a>
           </li>
           <li>
-            <a target='_blank' title='GitHub Profile' rel='noreferrer' href={'https://github.com/apascualm/'}>
+            <a
+              target='_blank'
+              title='GitHub Profile'
+              rel='noreferrer'
+              href={'https://github.com/apascualm/'}
+            >
               About Me
             </a>
           </li>
