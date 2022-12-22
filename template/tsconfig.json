@@ -1,3 +1,5 @@
 {
+  // Not load initially nothing because react-scrips override tsconfig file without request authorization
+  // For Typescript config watch the tsconfig.base.json
   "extends": "./tsconfig.base.json"
 }
