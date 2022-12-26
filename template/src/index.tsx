@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
-import {Router} from '@src/Router/Router'
+import { Router } from '@src/Router/Router'
 
 /**
  * If you do not use react-snap for static page, you could change to the next line.
@@ -17,21 +17,20 @@ import {Router} from '@src/Router/Router'
 
 const rootElement = document.getElementById('root') as HTMLElement
 if (rootElement?.hasChildNodes()) {
-    ReactDOM.hydrateRoot(
-        rootElement,
-        <React.StrictMode>
-            <Router/>
-        </React.StrictMode>
-    )
+  ReactDOM.hydrateRoot(
+    rootElement,
+    <React.StrictMode>
+      <Router />
+    </React.StrictMode>,
+  )
 } else {
-    const root = ReactDOM.createRoot(rootElement)
-    root.render(
-        <React.StrictMode>
-            <Router/>
-        </React.StrictMode>
-    )
+  const root = ReactDOM.createRoot(rootElement)
+  root.render(
+    <React.StrictMode>
+      <Router />
+    </React.StrictMode>,
+  )
 }
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
