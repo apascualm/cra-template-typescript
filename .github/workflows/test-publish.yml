@@ -1,4 +1,4 @@
-name: Tests And Publish
+name: Tests, Deploy And Publish
 on:
   workflow_dispatch:
   push:
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
       - name: Get npm cache directory
         id: npm-cache-dir
         shell: bash
@@ -31,9 +31,9 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       - name: Install dependencies
         run: npm i
-      - name: Run Code Style Check
+      - name: Run 🖋 Code Style Check
         run: npm run style
-      - name: Run Unit tests
+      - name: Run 🧪 Unit tests
         run: npm run test:unit
       - name: Cypress run
         uses: cypress-io/github-action@v5.0.0
@@ -46,6 +46,38 @@ jobs:
           name: cypress-test
           path: cypress/
           retention-days: 5
+  page_deploy:
+    needs: test
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./template
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+      - uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - name: Install dependencies & React Snap
+        run: npm i -D react-snap
+      - name: 🚧 Build App
+        run: npm build
+      - name: Run 📸 React snap
+        run: npx react-snap
+      - name: Deploy 🚀 Page
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
   publish:
     needs: test
     if: startsWith(github.ref, 'refs/tags/v')
@@ -56,6 +88,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
+      - name: NPM 📢 Publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_SECRET}}
