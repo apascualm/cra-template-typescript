@@ -71,7 +71,7 @@ jobs:
       - name: Install dependencies & React Snap
         run: npm i -D react-snap
       - name: 🚧 Build App
-        run: npm build
+        run: npm run build
       - name: Run 📸 React snap
         run: npx react-snap
       - name: Deploy 🚀 Page
