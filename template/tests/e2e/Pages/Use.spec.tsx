@@ -1,5 +1,5 @@
 describe('Given that is visited the use page', () => {
-  const url = 'http://localhost:3000/use'
+  const url = 'http://localhost:3000/#/use'
   describe('when the user navigate', () => {
     it('should load the page', () => {
       cy.visit(url)
